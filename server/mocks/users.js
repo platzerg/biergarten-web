@@ -11,8 +11,16 @@ module.exports = function(app) {
   });
 
   usersRouter.get('/', function(req, res) {
-    res.send({
-      'users': []
+    db.find(req.query).exec(function (err, users) {
+      res.send({
+        data: users.map(function (user) {
+          return {
+            type: 'users',
+            id: user.id,
+            attributes: user
+          };
+        })
+      });
     });
   });
 
