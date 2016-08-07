@@ -1,6 +1,5 @@
-// app/adapters/application.js
-import LSAdapter from 'ember-localstorage-adapter';
+import DS from 'ember-data';
 
-export default LSAdapter.extend({
-  namespace: 'biergarten-web'
+export default DS.JSONAPIAdapter.extend({
+  namespace: 'api'
 });
