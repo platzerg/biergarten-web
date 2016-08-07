@@ -1,0 +1,25 @@
+<div>
+  {{#each model as |list|}}
+      <div class="col-md-4">
+          <div class="list">
+            {{list.title}}
+            {{#each list.tasks as |task|}}
+                <div class="task">
+                  {{task.title}}
+                </div>
+            {{/each}}
+              <div>
+                {{input value=taskName}}
+                  <button {{action 'createTask' list}}>+</button>
+              </div>
+          </div>
+      </div>
+  {{/each}}
+    <div class="col-md-4">
+        <div class="list">
+          {{input value=listName}}
+            <button {{action 'createList'}}>Create</button>
+        </div>
+    </div>
+</div>
+{{outlet}}

@@ -1,0 +1,47 @@
+<div class="main-login main-center">
+  {{yield}}
+    <form class="form-horizontal">
+      {{#if message}}
+          <div class="alert alert-info">
+            {{message}}
+          </div>
+      {{/if}}
+        <div class="form-group">
+            <label for="username" class="cols-sm-2 control-label">Username</label>
+            <div class="cols-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                  {{input value=user.username class="form-control"}}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="cols-sm-2 control-label">Password</label>
+            <div class="cols-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                  {{input value=user.password class="form-control" type='password'}}
+                </div>
+            </div>
+        </div>
+
+
+        {{#unless loginWindow}}
+            <div class="form-group">
+                <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                      {{input value=user.passwordcnf class="form-control" type='password'}}
+                    </div>
+                </div>
+            </div>
+        {{/unless}}
+
+        <div class="form-group ">
+            <button type="button" class="btn btn-primary btn-lg btn-block login-button" {{action 'run'}}>{{actionTitle}}</button>
+        </div>
+    </form>
+</div>
+

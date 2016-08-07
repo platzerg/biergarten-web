@@ -1,0 +1,30 @@
+<h4>Boards</h4>
+{{input value=boardName}}
+<button {{action 'createBoard'}}>Create board</button>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="main-box clearfix">
+            <div class="table-responsive">
+                <table class="table user-list">
+                    <thead>
+                    <tr>
+                        <th><span>Board</span></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each model as |board|}}
+                        <tr>
+                            <td>
+                              {{#link-to "boards.lists" board.id}}
+                                {{board.title}}
+                              {{/link-to}}
+                            </td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{outlet}}
